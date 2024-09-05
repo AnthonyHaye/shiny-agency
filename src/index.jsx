@@ -1,35 +1,34 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home/index.jsx'
-import Survey from './pages/Survey/index.jsx';
-import Header from './components/Header/index.jsx';
-import ClientForm from './components/ClientForm/index.jsx';
-import FreelanceForm from './components/FreelanceForm/index.jsx';
-import Error from './components/error/index.jsx';
-import Results from './pages/Results/index.jsx';
-import Freelances from './pages/Freelances/index.jsx';
+import Home from './pages/Home'
+import Survey from './pages/Survey'
+import Results from './pages/Results'
+import Freelances from './pages/Freelances'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Error from './components/error'
+import GlobalStyle from './utils/style/GlobalStyle'
+import { ThemeProvider, SurveyProvider } from './utils/context'
 
-const rootElement = document.getElementById('root'); // Sélectionne l'élément DOM où tu veux rendre ton app
-const root = ReactDOM.createRoot(rootElement);
- 
-root.render(
-  
+ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/survey/:questionNumber" element={<Survey />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="/freelances" element={<Freelances />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <ThemeProvider>
+        <SurveyProvider>
+          <GlobalStyle />
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/survey/:questionNumber" element={<Survey />} />
+            <Route path="/results" element={<Results />} />
+            <Route path="/freelances" element={<Freelances />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </SurveyProvider>
+        <Footer />
+      </ThemeProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
 )
-
-
-
-

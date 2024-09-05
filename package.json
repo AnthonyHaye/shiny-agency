@@ -11,6 +11,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "6.10.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.1.13",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -38,6 +39,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.25.4",
+    "babel-jest": "^29.7.0",
+    "msw": "^2.4.2",
     "prettier": "^3.3.3"
   }
 }
