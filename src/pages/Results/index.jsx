@@ -76,7 +76,7 @@ function Results() {
   const queryParams = formatQueryParams(answers)
 
   const { data, isLoading, error } = useFetch(
-    `http://localhost:8000/results?${queryParams}`
+    `http://localhost:8000/results?${queryParams}`,
   )
 
   if (error) {

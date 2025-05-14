@@ -23,7 +23,7 @@ describe('The formatQueryParams function', () => {
   it('should concatenate params with an &', () => {
     const expectedState = 'a1=answer1&a2=answer2'
     expect(formatQueryParams({ 1: 'answer1', 2: 'answer2' })).toEqual(
-      expectedState
+      expectedState,
     )
   })
 })
@@ -42,7 +42,7 @@ const resultsMockedData = [
 const server = setupServer(
   rest.get('http://localhost:8000/results', (req, res, ctx) => {
     return res(ctx.json({ resultsData: resultsMockedData }))
-  })
+  }),
 )
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
@@ -57,7 +57,7 @@ describe('The Results component', () => {
     expect(jobTitleElements.length).toBe(2)
     const jobDescriptionElements = screen.getAllByTestId('job-description')
     expect(jobDescriptionElements[1].textContent).toBe(
-      resultsMockedData[1].description
+      resultsMockedData[1].description,
     )
     expect(jobDescriptionElements.length).toBe(2)
   })
